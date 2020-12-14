@@ -1,0 +1,28 @@
+.header {
+  padding: 5em 0 10em;
+  background: #00b8f5;
+  transition-duration: 0.5s;
+}
+
+.title {
+  text-align: center;
+  color: #fff
+}
+
+.logout {
+  display: none;
+  padding: 0.6em 1em;
+  border: 1px solid #fff;
+  font-size: 1em;
+  color: #fff
+}
+
+.header.login {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+.header.login .logout {
+  display: block;
+}

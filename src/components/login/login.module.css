@@ -1,0 +1,43 @@
+.login {
+  padding: 3em;
+  text-align: center;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #666;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.button {
+  margin-top: 1em;
+  padding: 1em 1.4em;
+  border: 1px solid #ddd;
+  font-size: 1em;
+}
+
+.button::before {
+  content: '|';
+  padding-left: 25px;
+  margin-right: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  color: #ddd;
+}
+
+.button[name="google"]::before {
+  background-image: url('./images/logo_google.png');
+}
+
+.button[name="github"]::before {
+  background-image: url('./images/logo_github.png');
+}
