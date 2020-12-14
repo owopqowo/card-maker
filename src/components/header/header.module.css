@@ -1,28 +1,26 @@
+@value makerWhite from '/src/common/color.css';
+@value makerBlue from '/src/common/color.css';
+
 .header {
   padding: 5em 0 10em;
-  background: #00b8f5;
+  background: makerBlue;
   transition-duration: 0.5s;
 }
 
 .title {
   text-align: center;
-  color: #fff
+  color: makerWhite;
 }
 
 .logout {
-  display: none;
   padding: 0.6em 1em;
-  border: 1px solid #fff;
+  border: 1px solid makerWhite;
   font-size: 1em;
-  color: #fff
+  color: makerWhite;
 }
 
-.header.login {
+.header[data-type='logout'] {
   display: flex;
   justify-content: space-between;
   padding: 2em;
-}
-
-.header.login .logout {
-  display: block;
 }
