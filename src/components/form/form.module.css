@@ -1,0 +1,103 @@
+@value makerBlue from '/src/common/color.css';
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.3rem;
+}
+
+.form:not(:first-of-type) {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.form > div {
+  padding: 0.3rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.form input,
+.form select {
+  height: 3em;
+  padding: 0 0.6em;
+}
+
+.form textarea {
+  height: 5em;
+  padding: 0.6em;
+}
+
+.form .input-name,
+.form .input-company,
+.form .select-theme {
+  flex: 0 0 33.3333%;
+}
+
+.form .input-file,
+.form .input-email {
+  flex: 0 0 50%;
+}
+
+.form .input-title,
+.form .input-contents,
+.form .buttons {
+  flex: 0 0 100%;
+}
+
+.form textarea {
+  resize: none;
+}
+
+.form .input-file {
+  position: relative;
+}
+
+.form .input-file input[type='file'] {
+  position: absolute;
+  opacity: 0;
+}
+
+.form .input-file label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+  cusor: pointer;
+}
+
+.form .input-file .file-name {
+  flex: 1 0 0;
+  padding: 0 0.6em;
+}
+
+.form .input-file .button-upload {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 0.6em;
+  border-left: 1px solid #ddd;
+  background: rgba(0, 184, 245, 0.05);
+}
+
+.form button {
+  width: 100%;
+  padding: 0.6em 0;
+  background: rgba(0, 184, 245, 0.6);
+  font-size: 1.1rem;
+  color: #fff;
+  transition-duration: 0.5s;
+}
+
+.form button:hover {
+  background: rgba(0, 184, 245, 1);
+}

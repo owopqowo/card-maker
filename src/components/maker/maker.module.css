@@ -1,0 +1,31 @@
+@value mediaQuery from '/src/common/size.css';
+@value makerBlue from '/src/common/color.css';
+
+.maker {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+}
+
+.main {
+  display: flex;
+  flex: 1 0 0;
+  padding: 1em;
+}
+
+.section {
+  flex: 1 0 0;
+  padding: 1em;
+}
+
+.title {
+  margin-bottom: 1em;
+  text-align: center;
+  color: makerBlue;
+}
+
+@media (max-width: mediaQuery) {
+  .main {
+    flex-direction: column;
+  }
+}

@@ -4,7 +4,6 @@
 .header {
   padding: 5em 0 10em;
   background: makerBlue;
-  transition-duration: 0.5s;
 }
 
 .title {
@@ -19,8 +18,8 @@
   color: makerWhite;
 }
 
-.header[data-type='logout'] {
+.header[data-type='login'] {
   display: flex;
   justify-content: space-between;
-  padding: 2em;
+  padding: 1em 2em;
 }

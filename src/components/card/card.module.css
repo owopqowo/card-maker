@@ -1,0 +1,102 @@
+@value makerBlue, makerColorful from '/src/common/color.css';
+
+.card {
+  display: flex;
+  padding: 2rem;
+  border: 1px solid makerBlue;
+}
+
+.card:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.info {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  padding: 1.5rem 0;
+}
+
+.info dt:last-of-type {
+  margin-bottom: auto;
+}
+
+.info-name {
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.info-company {
+  font-size: 1.2rem;
+  color: makerBlue;
+}
+
+.info dd {
+  font-size: 1rem;
+}
+
+.info i,
+.info i::before,
+.info i::after {
+  border-color: makerBlue;
+}
+
+.card .info i {
+  margin-right: 0.5rem;
+}
+
+.box-img {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-contents: center;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+}
+
+.img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* blue */
+.card[data-type='blue'] {
+  background: makerBlue;
+  color: #fff;
+}
+
+.card[data-type='blue'] .info-company {
+  color: #fff;
+}
+
+.card[data-type='blue'] .info dd {
+  opacity: 0.9;
+}
+
+.card[data-type='blue'] .info i,
+.card[data-type='blue'] .info i::before,
+.card[data-type='blue'] .info i::after {
+  border-color: #fff;
+}
+
+/* gradient */
+.card[data-type='gradient'] {
+  border: 0;
+  background: makerColorful;
+  color: #fff;
+}
+
+.card[data-type='gradient'] .info-company {
+  color: #fff;
+}
+
+.card[data-type='gradient'] .info dd {
+  opacity: 0.9;
+}
+
+.card[data-type='gradient'] .info i,
+.card[data-type='gradient'] .info i::before,
+.card[data-type='gradient'] .info i::after {
+  border-color: #fff;
+}

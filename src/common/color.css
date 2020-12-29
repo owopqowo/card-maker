@@ -6,5 +6,5 @@
 @value makerBlue: #00b8f5;
 @value makerPink: pink;
 @value makerShadow: rgba(217, 217, 217, 1);
-@value makerColorful: linear-gradient(166deg, rgba(237, 193, 211, 1) 0%,rgba(212, 149, 161, 1) 60%, rgba(162, 63, 63, 1) 100%, rgba(127, 188, 242, 1) 100%);
+@value makerColorful: linear-gradient(to right bottom, #e37db7, #d088d1, #b594e6, #92a1f4, #67acfa, #4bb6fc, #2bbffb, #00c7f6, #07d2f4, #2addf1, #47e7ec, #63f0e7);
 @value makerWheat: wheat;

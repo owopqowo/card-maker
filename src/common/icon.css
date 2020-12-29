@@ -1,0 +1,92 @@
+.icon {
+  position: relative;
+  display: inline-block;
+}
+
+.icon:before,
+.icon:after {
+  content: '';
+}
+
+.icon.mail {
+  overflow: hidden;
+  color: #000;
+  width: 15px;
+  height: 10px;
+  border-radius: 1px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.icon.mail:before {
+  position: absolute;
+  left: -4px;
+  top: -8px;
+  width: 10px;
+  height: 10px;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(50deg) skew(-10deg, -20deg);
+}
+
+.icon.chat {
+  width: 15px;
+  height: 11px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px 2px 4px 4px;
+  border-bottom-color: transparent !important;
+}
+
+.icon.chat:before {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-style: solid;
+  border-width: 0 0 1px 1px;
+  transform: rotate(-45deg);
+  bottom: -2px;
+  left: 3px;
+}
+
+.icon.chat:after {
+  position: absolute;
+  width: 4px;
+  height: 1px;
+  border-style: solid;
+  border-width: 0 7px 0 3px;
+  bottom: 0;
+  left: 0;
+}
+
+.icon.suitcase {
+  color: #000;
+  width: 15px;
+  height: 10px;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.icon.suitcase:before {
+  position: absolute;
+  left: 4px;
+  top: -3px;
+  width: 5px;
+  height: 2px;
+  border-radius: 3px 3px 0 0;
+  border-style: solid;
+  border-width: 1px 1px 0 1px;
+}
+
+.icon.suitcase:after {
+  position: absolute;
+  left: 3px;
+  width: 7px;
+  height: 10px;
+  border-style: solid;
+  border-width: 0 1px;
+}
