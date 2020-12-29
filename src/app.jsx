@@ -7,9 +7,8 @@ import styles from './app.module.css';
 function App(props) {
   return (
     <div className={styles.app}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
-          <Redirect from='/card-maker' to='/' />
           <Route path='/' exact>
             <Login authService={props.authService} />
           </Route>
