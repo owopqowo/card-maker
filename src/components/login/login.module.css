@@ -22,27 +22,20 @@
 }
 
 .button {
+  display: flex;
+  align-items: center;
   margin-top: 1rem;
   padding: 1em 1.4em;
   border: 1px solid #ddd;
   font-size: 1em;
 }
 
-.button::before {
+.button-img {
+  width: 1.5em;
+}
+
+.button-text::before {
   content: '|';
-  padding-left: 25px;
-  margin-right: 0.5em;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
+  margin: 0 0.5em;
   color: #ddd;
-}
-
-.button[data-login='Google']::before {
-  background-image: url(../../images/logo_google.png);
-}
-
-.button[data-login='Github']::before {
-  background-image: url(../../images/logo_github.png);
 }

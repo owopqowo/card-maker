@@ -30,10 +30,12 @@ const Login = (props) => {
         <h2 className={styles.title}>login</h2>
         <div className={styles.buttons}>
           <button data-login='Google' className={styles.button} onClick={onLogin}>
-            Login with Google
+            <img src='./images/logo_google.png' className={styles['button-img']} />
+            <span className={styles['button-text']}>Login with Google</span>
           </button>
           <button data-login='Github' className={styles.button} onClick={onLogin}>
-            Login with GitHub
+            <img src='./images/logo_github.png' className={styles['button-img']} />
+            <span className={styles['button-text']}>Login with GitHub</span>
           </button>
         </div>
         <Footer />

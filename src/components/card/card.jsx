@@ -1,28 +1,34 @@
 import React from 'react';
 import styles from './card.module.css';
 
-const Card = (props) => (
-  <li className={styles.card} data-type={props.card.theme}>
-    <dl className={styles.info}>
-      <dt className={styles['info-name']}>{props.card.name}</dt>
-      <dt className={styles['info-company']}>{props.card.company}</dt>
-      <dd className={styles['info-job']}>
-        <i className='icon suitcase'></i>
-        {props.card.title}
-      </dd>
-      <dd className={styles['info-email']}>
-        <i className='icon mail'></i>
-        {props.card.email}
-      </dd>
-      <dd className={styles['info-message']}>
-        <i className='icon chat'></i>
-        {props.card.message}
-      </dd>
-    </dl>
-    <div className={styles['box-img']}>
-      <img src={props.card.fileURL} alt={props.card.fileName} className={styles.img} />
-    </div>
-  </li>
-);
+const DEFAULT_IMAGE = './images/profile_default.jpg';
+
+const Card = ({ card }) => {
+  const { name, company, title, email, message, theme, fileName, fileURL } = card;
+  const url = fileURL || DEFAULT_IMAGE;
+  return (
+    <li className={styles.card} data-type={theme}>
+      <dl className={styles.info}>
+        <dt className={styles['info-name']}>{name}</dt>
+        <dt className={styles['info-company']}>{company}</dt>
+        <dd className={styles['info-job']}>
+          <i className='icon suitcase'></i>
+          {title}
+        </dd>
+        <dd className={styles['info-email']}>
+          <i className='icon mail'></i>
+          {email}
+        </dd>
+        <dd className={styles['info-message']}>
+          <i className='icon chat'></i>
+          {message}
+        </dd>
+      </dl>
+      <div className={styles['box-img']}>
+        <img src={url} alt={fileName} className={styles.img} />
+      </div>
+    </li>
+  );
+};
 
 export default Card;

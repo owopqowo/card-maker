@@ -49,7 +49,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-contents: center;
+  justify-content: center;
   width: 12rem;
   height: 12rem;
   border-radius: 50%;

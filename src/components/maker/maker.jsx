@@ -17,7 +17,7 @@ const Maker = (props) => {
       email: 'nana@abc.com',
       message: 'Do it now',
       fileName: 'nana',
-      fileURL: 'https://placeimg.com/200/300/people',
+      fileURL: null,
     },
     {
       id: '2',
