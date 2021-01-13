@@ -48,6 +48,15 @@ const Maker = (props) => {
     props.authService.logout();
   };
 
+  const addCard = (name, company, theme, title, email, message, fileName, fileURL) => {
+    setCards([...cards, { id: Date.now(), name, company, theme, title, email, message, fileName, fileURL }]);
+  };
+
+  const removeCard = (card) => {
+    const cards = cards.filter((item) => item.id !== card.id);
+    setCards(cards);
+  };
+
   useEffect(() => {
     props.authService.onAuthChange((user) => {
       if (!user) {
@@ -62,7 +71,7 @@ const Maker = (props) => {
       <main className={styles.main}>
         <section className={styles.section}>
           <h2 className={styles.title}>Card Maker</h2>
-          <Editor cards={cards} />
+          <Editor cards={cards} addCard={addCard} removeCard={removeCard} />
         </section>
         <section className={styles.section}>
           <h2 className={styles.title}>Card Preview</h2>

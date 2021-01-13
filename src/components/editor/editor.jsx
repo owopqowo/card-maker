@@ -8,6 +8,7 @@ const Editor = (props) => {
       {props.cards.map((card) => (
         <Form key={card.id} card={card} />
       ))}
+      <Form addCard={props.addCard} removeCard={props.removeCard} />
     </ul>
   );
 };
