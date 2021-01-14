@@ -2,11 +2,11 @@ import React from 'react';
 import Card from '../card/card';
 import styles from './preview.module.css';
 
-const Preview = (props) => {
+const Preview = ({ cards }) => {
   return (
     <ul className={styles.cards}>
-      {props.cards.map((card) => (
-        <Card key={card.id} card={card} />
+      {Object.keys(cards).map((key) => (
+        <Card key={key} card={cards[key]} />
       ))}
     </ul>
   );

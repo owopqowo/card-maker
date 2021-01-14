@@ -2,13 +2,13 @@ import React from 'react';
 import Form from '../form/form';
 import styles from './editor.module.css';
 
-const Editor = (props) => {
+const Editor = ({ cards, addCard, updateCard, deleteCard }) => {
   return (
     <ul className={styles.forms}>
-      {props.cards.map((card) => (
-        <Form key={card.id} card={card} />
+      {Object.keys(cards).map((key) => (
+        <Form key={key} card={cards[key]} updateCard={updateCard} deleteCard={deleteCard} />
       ))}
-      <Form addCard={props.addCard} removeCard={props.removeCard} />
+      <Form onAdd={addCard} />
     </ul>
   );
 };

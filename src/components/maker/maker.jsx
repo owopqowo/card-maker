@@ -7,8 +7,8 @@ import Footer from '../footer/footer';
 import Header from '../header/header';
 
 const Maker = (props) => {
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState({
+    1: {
       id: '1',
       name: 'NANA',
       company: 'ABC',
@@ -19,7 +19,7 @@ const Maker = (props) => {
       fileName: 'nana',
       fileURL: null,
     },
-    {
+    2: {
       id: '2',
       name: 'MMM',
       company: 'ABC',
@@ -30,7 +30,7 @@ const Maker = (props) => {
       fileName: 'mmm',
       fileURL: 'https://placeimg.com/300/200/people',
     },
-    {
+    3: {
       id: '3',
       name: 'AAAAA',
       company: 'ABC',
@@ -41,20 +41,27 @@ const Maker = (props) => {
       fileName: 'aaaaa',
       fileURL: 'https://placeimg.com/150/150/people',
     },
-  ]);
+  });
   const histroy = useHistory();
 
   const onLogout = () => {
     props.authService.logout();
   };
 
-  const addCard = (name, company, theme, title, email, message, fileName, fileURL) => {
-    setCards([...cards, { id: Date.now(), name, company, theme, title, email, message, fileName, fileURL }]);
+  const createOrUpdateCard = (card) => {
+    setCards((cards) => {
+      const updated = { ...cards };
+      updated[card.id] = card;
+      return updated;
+    });
   };
 
-  const removeCard = (card) => {
-    const cards = cards.filter((item) => item.id !== card.id);
-    setCards(cards);
+  const deleteCard = (card) => {
+    setCards((cards) => {
+      const updated = { ...cards };
+      delete updated[card.id];
+      return updated;
+    });
   };
 
   useEffect(() => {
@@ -71,7 +78,7 @@ const Maker = (props) => {
       <main className={styles.main}>
         <section className={styles.section}>
           <h2 className={styles.title}>Card Maker</h2>
-          <Editor cards={cards} addCard={addCard} removeCard={removeCard} />
+          <Editor cards={cards} addCard={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard} />
         </section>
         <section className={styles.section}>
           <h2 className={styles.title}>Card Preview</h2>
