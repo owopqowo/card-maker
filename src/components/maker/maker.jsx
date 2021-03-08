@@ -78,7 +78,7 @@ const Maker = (props) => {
       <main className={styles.main}>
         <section className={styles.section}>
           <h2 className={styles.title}>Card Maker</h2>
-          <Editor cards={cards} addCard={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard} />
+          <Editor FileInput={props.FileInput} cards={cards} addCard={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard} />
         </section>
         <section className={styles.section}>
           <h2 className={styles.title}>Card Preview</h2>

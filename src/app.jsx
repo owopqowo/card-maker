@@ -4,16 +4,16 @@ import Login from './components/login/login';
 import Maker from './components/maker/maker';
 import styles from './app.module.css';
 
-function App(props) {
+function App({FileInput, authService}) {
   return (
     <div className={styles.app}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path='/' exact>
-            <Login authService={props.authService} />
+            <Login authService={authService} />
           </Route>
           <Route path='/main'>
-            <Maker authService={props.authService} />
+            <Maker FileInput={FileInput} authService={authService} />
           </Route>
         </Switch>
       </BrowserRouter>

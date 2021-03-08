@@ -4,6 +4,7 @@
   display: flex;
   padding: 2rem;
   border: 1px solid makerBlue;
+  box-sizing: border-box;
 }
 
 .card:not(:first-child) {
