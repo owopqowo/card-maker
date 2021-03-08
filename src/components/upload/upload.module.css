@@ -1,4 +1,4 @@
-@value makerLightGrey from '/src/common/color.css';
+@value makerLightGrey, makerLightPink from '/src/common/color.css';
 
 .file {
   position: relative;
@@ -12,9 +12,45 @@
 .file .button {
   width: 100%;
   height: 100%;
+}
+
+.file .button.grey {
   background: makerLightGrey;
+}
+
+.file .button.pink {
+  background: makerLightPink;
 }
 
 .file .button:hover {
   opacity: 0.8;
+}
+
+.sppiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
+}
+
+.sppiner::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid makerLightGrey;
+  border-top-color: makerLightPink;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
