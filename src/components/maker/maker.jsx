@@ -6,46 +6,16 @@ import Preview from '../preview/preview';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 
-const Maker = (props) => {
-  const [cards, setCards] = useState({
-    1: {
-      id: '1',
-      name: 'NANA',
-      company: 'ABC',
-      theme: 'blue',
-      title: 'Title...',
-      email: 'nana@abc.com',
-      message: 'Do it now',
-      fileName: 'nana',
-      fileURL: null,
-    },
-    2: {
-      id: '2',
-      name: 'MMM',
-      company: 'ABC',
-      theme: 'light',
-      title: 'Title?',
-      email: 'mmm@abc.com',
-      message: 'Do it now',
-      fileName: 'mmm',
-      fileURL: 'https://placeimg.com/300/200/people',
-    },
-    3: {
-      id: '3',
-      name: 'AAAAA',
-      company: 'ABC',
-      theme: 'gradient',
-      title: 'Title!',
-      email: 'aaaaa@abc.com',
-      message: 'Do it now',
-      fileName: 'aaaaa',
-      fileURL: 'https://placeimg.com/150/150/people',
-    },
-  });
+const Maker = ({FileInput, authService, cardRepository}) => {
   const histroy = useHistory();
+  const historyState = histroy.location.state;
+
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(historyState && historyState.id);
+  
 
   const onLogout = () => {
-    props.authService.logout();
+    authService.logout();
   };
 
   const createOrUpdateCard = (card) => {
@@ -54,6 +24,7 @@ const Maker = (props) => {
       updated[card.id] = card;
       return updated;
     });
+    cardRepository.saveCard(userId, card);
   };
 
   const deleteCard = (card) => {
@@ -62,11 +33,26 @@ const Maker = (props) => {
       delete updated[card.id];
       return updated;
     });
+    cardRepository.removeCard(userId, card);
   };
 
   useEffect(() => {
-    props.authService.onAuthChange((user) => {
-      if (!user) {
+    console.log(userId);
+    if (!userId) {
+      return;
+    }
+    const stopSync = cardRepository.syncCard(userId, cards => {
+      console.log('test');
+      setCards(cards);
+    });
+    return () => stopSync();
+  }, [userId]);
+
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      if (user) {
+        setUserId(user.uid);
+      } else {
         histroy.push('/');
       }
     });
@@ -78,7 +64,7 @@ const Maker = (props) => {
       <main className={styles.main}>
         <section className={styles.section}>
           <h2 className={styles.title}>Card Maker</h2>
-          <Editor FileInput={props.FileInput} cards={cards} addCard={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard} />
+          <Editor FileInput={FileInput} cards={cards} addCard={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard} />
         </section>
         <section className={styles.section}>
           <h2 className={styles.title}>Card Preview</h2>

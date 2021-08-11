@@ -24,6 +24,7 @@ const Form = ({FileInput, card, onAdd, deleteCard, updateCard}) => {
         title: titleRef.current.value || '',
         message: messageRef.current.value || '',
         fileName: file.fileName || '',
+        fileURL: file.fileURL || '',
       };
       formRef.current.reset();
       setFile({
