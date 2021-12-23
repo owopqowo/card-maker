@@ -37,26 +37,24 @@ const Maker = ({FileInput, authService, cardRepository}) => {
   };
 
   useEffect(() => {
-    console.log(userId);
     if (!userId) {
       return;
     }
     const stopSync = cardRepository.syncCard(userId, cards => {
-      console.log('test');
       setCards(cards);
     });
     return () => stopSync();
-  }, [userId]);
+  }, [userId, cardRepository]);
 
   useEffect(() => {
-    authService.onAuthChange((user) => {
+    authService.onAuthChange(user => {
       if (user) {
         setUserId(user.uid);
       } else {
         histroy.push('/');
       }
     });
-  });
+  }, [authService, histroy]);
 
   return (
     <div className={styles.maker}>
