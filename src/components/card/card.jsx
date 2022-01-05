@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './card.module.css';
 
 const DEFAULT_IMAGE = process.env.PUBLIC_URL + '/images/profile_default.jpg';
 
-const Card = ({ card }) => {
+const Card = memo(({ card }) => {
   const { name, company, title, email, message, theme, fileName, fileURL } = card;
   const url = fileURL || DEFAULT_IMAGE;
   return (
@@ -29,6 +29,6 @@ const Card = ({ card }) => {
       </div>
     </li>
   );
-};
+});
 
 export default Card;

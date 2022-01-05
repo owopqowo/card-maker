@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { memo, useRef, useState } from 'react';
 import Buttons from '../buttons/buttons';
 import styles from './form.module.css';
 
-const Form = ({FileInput, card, onAdd, deleteCard, updateCard}) => {
+const Form = memo(({FileInput, card, onAdd, deleteCard, updateCard}) => {
   const formRef = useRef();
   const nameRef = useRef();
   const companyRef = useRef();
@@ -94,6 +94,6 @@ const Form = ({FileInput, card, onAdd, deleteCard, updateCard}) => {
       </form>
     </li>
   );
-};
+});
 
 export default Form;

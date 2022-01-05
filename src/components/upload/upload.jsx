@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { memo, useRef, useState } from 'react';
 import styles from './upload.module.css';
 
-const Upload = ({imageUploader, name, onFileChange}) => {
+const Upload = memo(({imageUploader, name, onFileChange}) => {
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef();
   
@@ -31,6 +31,6 @@ const Upload = ({imageUploader, name, onFileChange}) => {
       }
     </div>
   )
-};
+});
 
 export default Upload;
